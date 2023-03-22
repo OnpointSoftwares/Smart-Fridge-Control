@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                         Manifest.permission.BLUETOOTH_CONNECT
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
-                    Toast.makeText(this,"Permision Not granted",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Processings",Toast.LENGTH_LONG).show()
                 }
                 if(BA?.bondedDevices!!.size > 0)
                         {
@@ -63,7 +63,13 @@ class MainActivity : AppCompatActivity() {
                 }
                     }
                 }
+
             }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishActivity(2)
+    }
     private fun setupPermissions() {
         val permission = ContextCompat.checkSelfPermission(this,
             Manifest.permission.BLUETOOTH_CONNECT)
